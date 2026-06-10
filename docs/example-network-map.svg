@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="920" viewBox="0 0 1400 920">
+<rect width="1400" height="920" fill="#f6f8fb"/>
+<style>text{font-family:Segoe UI,Arial,sans-serif;letter-spacing:0}.hero{font-size:24px;font-weight:700;fill:#fff}.sub{font-size:13px;fill:#dbeafe}.title{font-size:15px;font-weight:700;fill:#111827}.small{font-size:12px;fill:#374151}.muted{font-size:11px;fill:#64748b}.port{font-size:11px;font-weight:700;fill:#111827}</style>
+<rect x="0" y="0" width="1400" height="82" fill="#172033"/>
+<rect x="0" y="78" width="1400" height="4" fill="#2f80ed"/>
+<text x="36" y="34" class="hero">Switch Refresh Topology</text>
+<text x="36" y="60" class="sub">access-sw01.example.net - sanitized example</text>
+<rect x="36" y="112" width="1328" height="300" rx="10" fill="#fff" stroke="#d8dee9"/>
+<text x="60" y="146" class="title">Upstream Boundary Map</text>
+<rect x="260" y="184" width="300" height="82" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+<text x="278" y="216" class="title">core-gw01.example.net</text>
+<text x="278" y="240" class="small">IP 198.51.100.1</text>
+<text x="278" y="260" class="muted">Traversal boundary</text>
+<rect x="840" y="184" width="300" height="82" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+<text x="858" y="216" class="title">core-gw02.example.net</text>
+<text x="858" y="240" class="small">IP 198.51.100.2</text>
+<text x="858" y="260" class="muted">Traversal boundary</text>
+<rect x="530" y="310" width="340" height="82" rx="8" fill="#f9fafb" stroke="#1f2937" stroke-width="2"/>
+<text x="548" y="342" class="title">access-sw01.example.net</text>
+<text x="548" y="366" class="small">IP 192.0.2.10</text>
+<text x="548" y="386" class="muted">Access switch</text>
+<line x1="410" y1="266" x2="700" y2="310" stroke="#047857" stroke-width="3"/>
+<line x1="990" y1="266" x2="700" y2="310" stroke="#047857" stroke-width="3"/>
+<rect x="512" y="262" width="250" height="54" rx="5" fill="#fff" stroke="#e5e7eb"/>
+<text x="524" y="278" class="port">local: TwentyFiveGigE1/0/22</text>
+<text x="524" y="300" class="port">remote: TenGigabitEthernet1/1/1</text>
+<rect x="638" y="262" width="250" height="54" rx="5" fill="#fff" stroke="#e5e7eb"/>
+<text x="650" y="278" class="port">local: TwentyFiveGigE1/0/22</text>
+<text x="650" y="300" class="port">remote: TenGigabitEthernet2/1/8</text>
+<text x="36" y="460" class="title">Downstream One-Hop Neighbors</text>
+<text x="36" y="482" class="muted">Direct LLDP/CDP neighbors below the access switch.</text>
+<rect x="36" y="510" width="390" height="104" rx="9" fill="#fff" stroke="#d8dee9"/><rect x="36" y="510" width="7" height="104" rx="4" fill="#4338ca"/>
+<text x="58" y="540" class="title">ap-101.example.net</text><text x="58" y="564" class="small">IP 192.0.2.101</text><text x="58" y="588" class="muted">Local Gi1/0/11 -> Remote eth0</text>
+<rect x="456" y="510" width="390" height="104" rx="9" fill="#fff" stroke="#d8dee9"/><rect x="456" y="510" width="7" height="104" rx="4" fill="#2563eb"/>
+<text x="478" y="540" class="title">camera-201.example.net</text><text x="478" y="564" class="small">IP 192.0.2.201</text><text x="478" y="588" class="muted">Local Gi1/0/12 -> Remote eth0</text>
+<rect x="876" y="510" width="390" height="104" rx="9" fill="#fff" stroke="#d8dee9"/><rect x="876" y="510" width="7" height="104" rx="4" fill="#4338ca"/>
+<text x="898" y="540" class="title">phone-301.example.net</text><text x="898" y="564" class="small">IP 192.0.2.130</text><text x="898" y="588" class="muted">Local Gi1/0/13 -> Remote port1</text>
+</svg>

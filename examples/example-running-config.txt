@@ -1,0 +1,30 @@
+!
+! Sanitized example only.
+!
+version 17.9
+hostname access-sw01
+!
+vlan 10
+ name USERS
+vlan 20
+ name VOICE
+!
+interface GigabitEthernet1/0/11
+ description AP-101
+ switchport mode access
+ switchport access vlan 10
+!
+interface GigabitEthernet1/0/12
+ description CAMERA-201
+ switchport mode access
+ switchport access vlan 10
+!
+interface TenGigabitEthernet1/1/1
+ description UPLINK core-gw01.example.net
+ switchport mode trunk
+!
+interface TenGigabitEthernet2/1/8
+ description UPLINK core-gw02.example.net
+ switchport mode trunk
+!
+end

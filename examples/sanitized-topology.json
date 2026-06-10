@@ -1,0 +1,51 @@
+{
+  "snapshotId": "example-snapshot-001",
+  "target": {
+    "hostname": "access-sw01.example.net",
+    "managementIp": "192.0.2.10",
+    "deviceType": "ACCESS_SWITCH",
+    "location": "IDF-A"
+  },
+  "neighbors": [
+    {
+      "localInterface": "TenGigabitEthernet1/1/1",
+      "protocol": "CDP",
+      "neighbor": "core-gw01.example.net",
+      "neighborIp": "198.51.100.1",
+      "remotePort": "TwentyFiveGigE1/0/22",
+      "boundary": true
+    },
+    {
+      "localInterface": "TenGigabitEthernet2/1/8",
+      "protocol": "CDP",
+      "neighbor": "core-gw02.example.net",
+      "neighborIp": "198.51.100.2",
+      "remotePort": "TwentyFiveGigE1/0/22",
+      "boundary": true
+    },
+    {
+      "localInterface": "GigabitEthernet1/0/11",
+      "protocol": "LLDP",
+      "neighbor": "ap-101.example.net",
+      "neighborIp": "192.0.2.101",
+      "remotePort": "eth0",
+      "boundary": false
+    },
+    {
+      "localInterface": "GigabitEthernet1/0/12",
+      "protocol": "CDP",
+      "neighbor": "camera-201.example.net",
+      "neighborIp": "192.0.2.201",
+      "remotePort": "eth0",
+      "boundary": false
+    },
+    {
+      "localInterface": "GigabitEthernet1/0/13",
+      "protocol": "LLDP",
+      "neighbor": "phone-301.example.net",
+      "neighborIp": "192.0.2.130",
+      "remotePort": "port1",
+      "boundary": false
+    }
+  ]
+}
