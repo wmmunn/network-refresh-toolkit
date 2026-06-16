@@ -1,0 +1,39 @@
+{
+  "snapshotId": "sanitized-snapshot-1",
+  "devices": [
+    {
+      "name": "ACCESS-SW01",
+      "primaryIp": "192.0.2.10",
+      "deviceType": "Catalyst Access Switch",
+      "customVariables": {
+        "idf": "IDF-A"
+      },
+      "lldpNeighbors": [
+        {
+          "protocol": "LLDP",
+          "localInterface": "TenGigabitEthernet1/1/1",
+          "neighborHostname": "CORE-RTR01",
+          "remotePort": "TenGigabitEthernet0/0/1",
+          "neighborRole": "core_router",
+          "active": true
+        },
+        {
+          "protocol": "LLDP",
+          "localInterface": "TenGigabitEthernet1/1/2",
+          "neighborHostname": "CORE-RTR02",
+          "remotePort": "TenGigabitEthernet0/0/1",
+          "neighborRole": "core_router",
+          "active": true
+        },
+        {
+          "protocol": "CDP",
+          "localInterface": "GigabitEthernet1/0/12",
+          "neighborHostname": "AP-01",
+          "remotePort": "eth0",
+          "deviceType": "wireless access point",
+          "active": true
+        }
+      ]
+    }
+  ]
+}

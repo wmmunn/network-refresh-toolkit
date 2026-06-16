@@ -94,6 +94,9 @@ network-refresh-toolkit/
   tools/
     forward-topology-mapper/
       README.md
+      requirements.txt
+      src/
+      tests/
     forward-config-downloader/
       README.md
       requirements.txt
@@ -113,4 +116,4 @@ This project is meant to show practical network automation judgment:
 
 ## Status
 
-Sanitized portfolio package. The Forward Config Downloader includes public sample source and tests; other tools may be represented by documentation and generated sanitized examples until their source is prepared for public release.
+Sanitized portfolio package. The Forward Topology Mapper and Forward Config Downloader include public sample source and tests. Examples and fixtures use placeholder data only.

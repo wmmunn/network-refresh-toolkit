@@ -1,6 +1,6 @@
 # Forward Topology Mapper
 
-Sanitized portfolio summary of a read-only topology mapping tool for switch refresh documentation.
+Sanitized public source for a read-only topology mapping tool for switch refresh documentation.
 
 ## Goal
 
@@ -26,6 +26,19 @@ Given a target access switch hostname, create a practical diagram and lookup she
 8. Write Markdown and SVG artifacts for operator review.
 ```
 
+## Source Included
+
+This public version includes a runnable Python package under `src/`, a sanitized local payload under `examples/`, and sanitized tests under `tests/`.
+
+It intentionally does not include:
+
+- private tenant IDs
+- real hostnames or IP addresses
+- raw Forward Networks payloads
+- logs or generated diagrams from production snapshots
+- packaged executables
+- credentials or environment files
+
 ## Safety Model
 
 - Read-only API calls.
@@ -34,33 +47,55 @@ Given a target access switch hostname, create a practical diagram and lookup she
 - No traversal beyond the first upstream boundary pair.
 - Output is designed for review, not execution.
 
-## Environment And Tenant Setup
+## Usage
 
-Before running a topology mapper against a real Forward Networks environment, obtain and confirm:
+Before running this against a real Forward Networks environment, confirm:
 
 - Your Forward Networks tenant/base URL.
 - Your network or tenant-scoped network ID.
 - The authentication method approved for your tenant.
 - Whether your tenant uses the default API prefix, such as `/api`.
-- The endpoint structure for snapshots, devices, modeled topology links, and snapshot file content.
-- The naming and location pattern for CDP/LLDP snapshot files.
+- The snapshot, device, topology, and snapshot-file endpoint structure exposed by your tenant.
+- The CDP/LLDP file naming convention available in the snapshot.
 
-Expected environment variables for a typical implementation:
+Forward Networks deployments can differ by tenant, API version, and enabled features. Treat the endpoint templates in this sample as starting points, not universal constants.
+
+Render from the included sanitized local payload:
+
+```powershell
+$env:PYTHONPATH = "$PWD\src"
+python -m forward_topology_mapper.cli `
+  --hostname ACCESS-SW01 `
+  --local-payload examples\sanitized-topology.json `
+  --output-dir output
+```
+
+Run against a reviewed Forward Networks snapshot:
 
 ```powershell
 $env:FORWARD_NETWORKS_KEY = "your-key"
 $env:FORWARD_NETWORKS_SECRET = "your-secret"
 $env:FORWARD_NETWORKS_NETWORK_ID = "your-network-id"
+$env:PYTHONPATH = "$PWD\src"
+python -m forward_topology_mapper.cli --hostname access-sw01.example.net
 ```
 
-Optional environment variables may include:
+Optional arguments can select a specific snapshot, output folder, tenant base URL, API prefix, auth mode, or endpoint template:
 
 ```powershell
-$env:FWD_BASE_URL = "https://your-forward-tenant.example"
-$env:FWD_API_PREFIX = "/api"
+python -m forward_topology_mapper.cli `
+  --network-id your-network-id `
+  --snapshot-id snapshot-id `
+  --hostname access-sw01.example.net `
+  --output-dir docs
 ```
 
-Forward Networks deployments can differ by tenant, API version, and enabled features. Treat endpoint paths and file names as tenant-specific details that must be confirmed before use.
+## Tests
+
+```powershell
+$env:PYTHONPATH = "$PWD\src"
+python -m unittest discover -s tests -v
+```
 
 ## Tenant Discovery Notes
 
