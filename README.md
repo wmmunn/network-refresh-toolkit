@@ -96,6 +96,9 @@ network-refresh-toolkit/
       README.md
     forward-config-downloader/
       README.md
+      requirements.txt
+      src/
+      tests/
 ```
 
 ## What This Demonstrates
@@ -110,4 +113,4 @@ This project is meant to show practical network automation judgment:
 
 ## Status
 
-Portfolio documentation package. The examples are sanitized and intended to communicate project design and workflow value.
+Sanitized portfolio package. The Forward Config Downloader includes public sample source and tests; other tools may be represented by documentation and generated sanitized examples until their source is prepared for public release.
