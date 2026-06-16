@@ -1,5 +1,7 @@
 # Network Refresh Toolkit
 
+[![tests](https://github.com/wmmunn/network-refresh-toolkit/actions/workflows/tests.yml/badge.svg)](https://github.com/wmmunn/network-refresh-toolkit/actions/workflows/tests.yml)
+
 Python tooling experiments for making network switch refresh work more repeatable, reviewable, and operator-safe.
 
 This repository is a sanitized portfolio version of practical workflow tools. It uses placeholder hostnames, documentation-only examples, and test-style fixtures instead of private configs, logs, credentials, or environment-specific data.
