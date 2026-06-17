@@ -128,3 +128,4 @@ def configure_logging(logs_dir: Path) -> Path:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

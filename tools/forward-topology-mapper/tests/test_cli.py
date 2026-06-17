@@ -2,7 +2,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from forward_topology_mapper.cli import main, settings_from_args, build_parser
+from forward_topology_mapper.cli import build_parser, main, settings_from_args
 
 
 class CliTests(unittest.TestCase):
@@ -17,22 +17,20 @@ class CliTests(unittest.TestCase):
     def test_cli_can_render_from_local_payload(self):
         fixture = Path(__file__).resolve().parents[1] / "examples" / "sanitized-topology.json"
         with tempfile.TemporaryDirectory() as temp_dir:
-            exit_code = main(
-                [
-                    "--hostname",
-                    "ACCESS-SW01",
-                    "--local-payload",
-                    str(fixture),
-                    "--output-dir",
-                    temp_dir,
-                    "--logs-dir",
-                    str(Path(temp_dir) / "logs"),
-                ]
-            )
+            exit_code = main([
+                "--hostname",
+                "ACCESS-SW01",
+                "--local-payload",
+                str(fixture),
+                "--output-dir",
+                temp_dir,
+                "--logs-dir",
+                str(Path(temp_dir) / "logs"),
+            ])
 
             self.assertEqual(exit_code, 0)
-            self.assertTrue(list(Path(temp_dir).glob("*topology-blueprint.md")))
-            self.assertTrue(list(Path(temp_dir).glob("*network-map.svg")))
+            self.assertTrue((Path(temp_dir) / "ACCESS-SW01__snapshot-sanitized-snapshot-1__topology-blueprint.md").exists())
+            self.assertTrue((Path(temp_dir) / "ACCESS-SW01__snapshot-sanitized-snapshot-1__network-map.svg").exists())
 
 
 if __name__ == "__main__":

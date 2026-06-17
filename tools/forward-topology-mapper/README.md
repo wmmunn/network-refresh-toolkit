@@ -2,6 +2,8 @@
 
 Sanitized public source for a read-only topology mapping tool for switch refresh documentation.
 
+Current public version: `v0.4.0`.
+
 ## Goal
 
 Given a target access switch hostname, create a practical diagram and lookup sheet showing:
@@ -9,26 +11,30 @@ Given a target access switch hostname, create a practical diagram and lookup she
 - the target switch
 - switch management IP and device type
 - upstream gateway/router boundary pair
-- direct one-hop CDP/LLDP neighbors below the switch
+- direct one-hop CDP/LLDP neighbors
 - local interface and remote port details
 - neighbor management IPs when available
 
-## Workflow
+## Interface
 
-```text
-1. Read API credentials from environment variables.
-2. Select a network snapshot.
-3. Fetch device metadata.
-4. Fetch modeled topology links.
-5. Fetch per-switch CDP/LLDP snapshot files.
-6. Normalize neighbor records.
-7. Mark upstream gateway/router devices as traversal boundaries.
-8. Write Markdown and SVG artifacts for operator review.
+The recommended operator path is the Tkinter GUI:
+
+```powershell
+python .\forward_topology_mapper_gui.py
+```
+
+The GUI keeps the workflow read-only, shows credential readiness, supports a sanitized local payload for offline testing, and opens the generated Markdown/SVG outputs for review.
+
+The CLI remains available for repeatable runs and tests:
+
+```powershell
+$env:PYTHONPATH = "$PWD\src"
+python -m forward_topology_mapper.cli --help
 ```
 
 ## Source Included
 
-This public version includes a runnable Python package under `src/`, a sanitized local payload under `examples/`, and sanitized tests under `tests/`.
+This public version includes a runnable Python package under `src/`, a sanitized local payload under `examples/`, a GUI launcher, a CLI launcher, a PyInstaller spec, icon assets, and sanitized tests under `tests/`.
 
 It intentionally does not include:
 
@@ -51,12 +57,12 @@ It intentionally does not include:
 
 Before running this against a real Forward Networks environment, confirm:
 
-- Your Forward Networks tenant/base URL.
-- Your network or tenant-scoped network ID.
-- The authentication method approved for your tenant.
-- Whether your tenant uses the default API prefix, such as `/api`.
-- The snapshot, device, topology, and snapshot-file endpoint structure exposed by your tenant.
-- The CDP/LLDP file naming convention available in the snapshot.
+- your Forward Networks tenant/base URL
+- your network or tenant-scoped network ID
+- the authentication method approved for your tenant
+- whether your tenant uses the default API prefix, such as `/api`
+- the snapshot, device, topology, and snapshot-file endpoint structure exposed by your tenant
+- the CDP/LLDP file naming convention available in the snapshot
 
 Forward Networks deployments can differ by tenant, API version, and enabled features. Treat the endpoint templates in this sample as starting points, not universal constants.
 
@@ -80,15 +86,17 @@ $env:PYTHONPATH = "$PWD\src"
 python -m forward_topology_mapper.cli --hostname access-sw01.example.net
 ```
 
-Optional arguments can select a specific snapshot, output folder, tenant base URL, API prefix, auth mode, or endpoint template:
+Optional arguments can select a specific snapshot, output folder, tenant base URL, API prefix, auth mode, or endpoint template.
+
+## Optional Windows Build
+
+Install PyInstaller in your build environment, then run:
 
 ```powershell
-python -m forward_topology_mapper.cli `
-  --network-id your-network-id `
-  --snapshot-id snapshot-id `
-  --hostname access-sw01.example.net `
-  --output-dir docs
+python -m PyInstaller --noconfirm --clean .\ForwardNetworksTopologyMapper.spec
 ```
+
+Generated executables, build folders, and logs should stay out of the public repository.
 
 ## Tests
 
@@ -112,7 +120,7 @@ In practice, adapting the mapper may require a few controlled endpoint attempts 
 ## Outputs
 
 - Markdown blueprint with complete neighbor table.
-- Large screen-view SVG with upstream boundaries above the switch and downstream neighbors in a grid.
+- Report-style SVG with a map summary, legend, upstream boundary lane, adaptive downstream layout, and complete neighbor lookup table.
 
 See:
 

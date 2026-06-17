@@ -52,6 +52,37 @@ class RenderTests(unittest.TestCase):
             self.assertTrue(result.markdown_path.exists())
             self.assertTrue(result.svg_path.exists())
 
+    def test_small_downstream_neighbor_set_renders_inline(self):
+        blueprint = TopologyBlueprint(
+            target=DeviceMetadata("ACCESS-SW01", "192.0.2.10", "switch", "IDF-A", "access"),
+            snapshot_id="snap-1",
+            boundary_pattern=r"(core|router)",
+            neighbors=(
+                NeighborLink("Gi1/0/12", "AP-01", "eth0", "CDP", is_boundary=False),
+            ),
+        )
+
+        svg = render_svg(blueprint)
+
+        self.assertIn("Downstream One-Hop Neighbors", svg)
+        self.assertNotIn("Cards are arranged by local interface sort order", svg)
+
+    def test_large_downstream_neighbor_set_uses_grid(self):
+        links = tuple(
+            NeighborLink(f"Gi1/0/{index}", f"AP-{index:02d}", "eth0", "CDP", is_boundary=False)
+            for index in range(1, 6)
+        )
+        blueprint = TopologyBlueprint(
+            target=DeviceMetadata("ACCESS-SW01", "192.0.2.10", "switch", "IDF-A", "access"),
+            snapshot_id="snap-1",
+            boundary_pattern=r"(core|router)",
+            neighbors=links,
+        )
+
+        svg = render_svg(blueprint)
+
+        self.assertIn("Cards are arranged by local interface sort order", svg)
+
 
 if __name__ == "__main__":
     unittest.main()
