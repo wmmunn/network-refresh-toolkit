@@ -6,6 +6,8 @@ Python tooling experiments for making network switch refresh work more repeatabl
 
 This repository is a sanitized portfolio version of practical workflow tools. It uses placeholder hostnames, documentation-only examples, and test-style fixtures instead of private configs, logs, credentials, or environment-specific data.
 
+Most network automation tooling assumes a mature SDN environment or enterprise platform. This toolkit is built for the engineer doing careful hands-on refresh work in environments where that infrastructure doesn't exist yet, where repeatability and operator safety have to come from the tools themselves.
+
 ## Why This Exists
 
 Network refresh work often combines many small but risky tasks:
