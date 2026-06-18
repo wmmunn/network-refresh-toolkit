@@ -52,6 +52,12 @@ class RenderTests(unittest.TestCase):
             self.assertTrue(result.markdown_path.exists())
             self.assertTrue(result.svg_path.exists())
 
+    def test_public_sample_topology_map_svg_is_included(self):
+        sample_svg = Path(__file__).resolve().parents[1] / "examples" / "sample-topology-map.svg"
+
+        self.assertTrue(sample_svg.exists())
+        self.assertIn("ACCESS-SW01", sample_svg.read_text(encoding="utf-8"))
+
     def test_small_downstream_neighbor_set_renders_inline(self):
         blueprint = TopologyBlueprint(
             target=DeviceMetadata("ACCESS-SW01", "192.0.2.10", "switch", "IDF-A", "access"),

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1320" viewBox="0 0 1800 1320">
+<defs>
+<filter id="cardShadow" x="-10%" y="-10%" width="120%" height="130%">
+<feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.12"/>
+</filter>
+<linearGradient id="heroGradient" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0%" stop-color="#111827"/>
+<stop offset="100%" stop-color="#1e3a5f"/>
+</linearGradient>
+</defs>
+<rect width="1800" height="1320" fill="#f6f8fb"/>
+<style>text{font-family:Segoe UI,Arial,sans-serif;letter-spacing:0}.hero{font-size:26px;font-weight:700;fill:#ffffff}.hero-sub{font-size:17px;fill:#cbd5e1}.hero-note{font-size:12px;fill:#bfdbfe}.header-meta{font-size:13px;fill:#dbeafe;text-anchor:start}.section-title{font-size:16px;font-weight:700;fill:#111827}.lane-label{font-size:12px;font-weight:700;fill:#475569;text-transform:uppercase;letter-spacing:.12em}.tile-label{font-size:11px;font-weight:700;fill:#64748b;text-transform:uppercase}.tile-value{font-size:16px;font-weight:700;fill:#111827}.device-title{font-size:15px;font-weight:700;fill:#111827}.device-sub{font-size:13px;fill:#374151}.muted{font-size:12px;fill:#64748b}.port{font-size:11px;font-weight:700;fill:#111827}.table-head{font-size:12px;font-weight:700;fill:#334155}.table-cell{font-size:12px;fill:#111827}.warn{font-size:13px;font-weight:700;fill:#9a3412}.footer-text{font-size:12px;fill:#dbeafe}</style>
+<rect x="0" y="0" width="1800" height="112" fill="url(#heroGradient)"/>
+<rect x="0" y="108" width="1800" height="4" fill="#38bdf8"/>
+<text x="42" y="42" class="hero">Network Topology Map</text>
+<text x="42" y="68" class="hero-sub">ACCESS-SW01</text>
+<text x="42" y="90" class="hero-note">Read-only Forward Networks snapshot artifact. Review against source data before implementation.</text>
+<text x="1390" y="40" class="header-meta">Snapshot sanitized-snapshot-1</text>
+<text x="1390" y="66" class="header-meta">Generated 2026-06-18 00:11</text>
+<text x="42" y="152" class="section-title">Map Summary</text>
+<rect x="42" y="170" width="390" height="70" rx="8" fill="#ffffff" stroke="#d8dee9" filter="url(#cardShadow)"/><text x="60" y="194" class="tile-label">Target</text><text x="60" y="222" class="tile-value">ACCESS-SW01</text>
+<rect x="462" y="170" width="390" height="70" rx="8" fill="#ffffff" stroke="#d8dee9" filter="url(#cardShadow)"/><text x="480" y="194" class="tile-label">Management IP</text><text x="480" y="222" class="tile-value">192.0.2.10</text>
+<rect x="882" y="170" width="390" height="70" rx="8" fill="#ffffff" stroke="#d8dee9" filter="url(#cardShadow)"/><text x="900" y="194" class="tile-label">Device Type</text><text x="900" y="222" class="tile-value">Catalyst Access Switch</text>
+<rect x="1302" y="170" width="390" height="70" rx="8" fill="#ffffff" stroke="#d8dee9" filter="url(#cardShadow)"/><text x="1320" y="194" class="tile-label">Location / IDF</text><text x="1320" y="222" class="tile-value">IDF-A</text>
+<rect x="42" y="258" width="1716" height="84" rx="12" fill="#ffffff" stroke="#d8dee9" filter="url(#cardShadow)"/>
+<text x="66" y="289" class="section-title">Legend</text>
+<rect x="164" y="280" width="18" height="18" rx="4" fill="#2563eb"/><text x="192" y="294" class="muted">Target access switch</text>
+<rect x="454" y="280" width="18" height="18" rx="4" fill="#d97706"/><text x="482" y="294" class="muted">Boundary / upstream</text>
+<rect x="744" y="280" width="18" height="18" rx="4" fill="#16a34a"/><text x="772" y="294" class="muted">One-hop neighbor</text>
+<rect x="1034" y="280" width="18" height="18" rx="4" fill="#64748b"/><text x="1062" y="294" class="muted">Interface label</text>
+<text x="66" y="326" class="muted">Boundary match: (dist|distribution|core|router|rtr|gw|gateway)</text>
+<rect x="42" y="372" width="1716" height="632" rx="12" fill="#ffffff" stroke="#d8dee9" filter="url(#cardShadow)"/>
+<rect x="42" y="372" width="1716" height="54" rx="12" fill="#edf6ff"/>
+<text x="66" y="406" class="section-title">Upstream / Boundary Lane</text>
+<text x="66" y="448" class="muted">Traversal stops at boundary devices. Downstream neighbors are shown separately as direct one-hop adjacencies.</text>
+<text x="828" y="716" class="lane-label">Target Switch</text>
+<rect x="700" y="740" width="400" height="118" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2" filter="url(#cardShadow)"/><rect x="700" y="740" width="8" height="118" rx="5" fill="#2563eb"/><text x="718" y="772" class="device-title">ACCESS-SW01</text><text x="718" y="798" class="device-sub">IP 192.0.2.10</text><text x="718" y="822" class="muted">Access switch</text>
+<rect x="360" y="486" width="380" height="92" rx="10" fill="#fff7ed" stroke="#d97706" stroke-width="2" filter="url(#cardShadow)"/><rect x="360" y="486" width="8" height="92" rx="5" fill="#d97706"/><text x="378" y="518" class="device-title">CORE-RTR01</text><text x="378" y="544" class="device-sub">IP Unknown</text><text x="378" y="568" class="muted">Traversal boundary (LLDP)</text>
+<path d="M550 578 C550 659, 790 659, 790 740" fill="none" stroke="#d97706" stroke-width="3"/><circle cx="550" cy="578" r="5" fill="#d97706"/><circle cx="790" cy="740" r="5" fill="#d97706"/><rect x="545" y="627" width="250" height="54" rx="6" fill="#ffffff" stroke="#e5e7eb" filter="url(#cardShadow)"/><text x="557" y="642" class="port">local: TenGigabitEthernet1/1/1</text><text x="557" y="663" class="port">remote: TenGigabitEthernet0/0/1</text>
+<rect x="1060" y="486" width="380" height="92" rx="10" fill="#fff7ed" stroke="#d97706" stroke-width="2" filter="url(#cardShadow)"/><rect x="1060" y="486" width="8" height="92" rx="5" fill="#d97706"/><text x="1078" y="518" class="device-title">CORE-RTR02</text><text x="1078" y="544" class="device-sub">IP Unknown</text><text x="1078" y="568" class="muted">Traversal boundary (LLDP)</text>
+<path d="M1250 578 C1250 659, 1010 659, 1010 740" fill="none" stroke="#d97706" stroke-width="3"/><circle cx="1250" cy="578" r="5" fill="#d97706"/><circle cx="1010" cy="740" r="5" fill="#d97706"/><rect x="1005" y="627" width="250" height="54" rx="6" fill="#ffffff" stroke="#e5e7eb" filter="url(#cardShadow)"/><text x="1017" y="642" class="port">local: TenGigabitEthernet1/1/2</text><text x="1017" y="663" class="port">remote: TenGigabitEthernet0/0/1</text>
+<text x="66" y="902" class="lane-label">Downstream One-Hop Neighbors</text>
+<path d="M900 858 C900 880, 900 888, 900 910" fill="none" stroke="#16a34a" stroke-width="2.5"/>
+<circle cx="900" cy="858" r="4" fill="#16a34a"/>
+<circle cx="900" cy="910" r="4" fill="#16a34a"/>
+<rect x="735" y="910" width="330" height="82" rx="9" fill="#f8fffb" stroke="#d8dee9" filter="url(#cardShadow)"/><rect x="735" y="910" width="7" height="82" rx="4" fill="#16a34a"/><text x="755" y="936" class="device-title">AP-01</text><text x="755" y="960" class="muted">Local GigabitEthernet... -> eth0</text><rect x="993" y="926" width="52" height="22" rx="11" fill="#16a34a"/><text x="1019" y="941" text-anchor="middle" style="font-size:10px;font-weight:700;fill:#ffffff">CDP</text>
+<text x="42" y="1032" class="section-title">Complete Neighbor Lookup</text>
+<rect x="42" y="1050" width="1716" height="132" rx="10" fill="#ffffff" stroke="#d8dee9" filter="url(#cardShadow)"/>
+<rect x="42" y="1050" width="1716" height="36" rx="10" fill="#e8eef7"/>
+<text x="64" y="1074" class="table-head">Local Port</text>
+<text x="246" y="1074" class="table-head">Neighbor</text>
+<text x="680" y="1074" class="table-head">Neighbor IP</text>
+<text x="880" y="1074" class="table-head">Remote Port</text>
+<text x="1110" y="1074" class="table-head">Type</text>
+<text x="1280" y="1074" class="table-head">Boundary</text>
+<text x="64" y="1114" class="table-cell">TenGigabitEthernet1...</text>
+<text x="246" y="1114" class="table-cell">CORE-RTR01</text>
+<text x="680" y="1114" class="table-cell">Unknown</text>
+<text x="880" y="1114" class="table-cell">TenGigabitEthernet0/0/1</text>
+<text x="1110" y="1114" class="table-cell">LLDP</text>
+<text x="1280" y="1114" class="table-cell">Yes</text>
+<rect x="54" y="1125" width="1692" height="24" fill="#f8fafc"/>
+<text x="64" y="1142" class="table-cell">TenGigabitEthernet1...</text>
+<text x="246" y="1142" class="table-cell">CORE-RTR02</text>
+<text x="680" y="1142" class="table-cell">Unknown</text>
+<text x="880" y="1142" class="table-cell">TenGigabitEthernet0/0/1</text>
+<text x="1110" y="1142" class="table-cell">LLDP</text>
+<text x="1280" y="1142" class="table-cell">Yes</text>
+<text x="64" y="1170" class="table-cell">GigabitEthernet1/0/12</text>
+<text x="246" y="1170" class="table-cell">AP-01</text>
+<text x="680" y="1170" class="table-cell">Unknown</text>
+<text x="880" y="1170" class="table-cell">eth0</text>
+<text x="1110" y="1170" class="table-cell">CDP</text>
+<text x="1280" y="1170" class="table-cell">No</text>
+<rect x="42" y="1242" width="1716" height="52" rx="10" fill="#172033"/>
+<text x="66" y="1274" class="footer-text">Generated by Forward Networks Topology Mapper</text>
+<text x="1734" y="1274" class="footer-text" text-anchor="end">Review against Forward source data before implementation. Generated 2026-06-18 00:11</text>
+</svg>

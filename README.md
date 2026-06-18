@@ -39,8 +39,11 @@ The mapper is designed to:
 
 Example output:
 
+![Sample topology map](tools/forward-topology-mapper/examples/sample-topology-map.svg)
+
 - [Example topology blueprint](docs/example-topology-blueprint.md)
-- [Example network map SVG](docs/example-network-map.svg)
+- [Sample topology map SVG](tools/forward-topology-mapper/examples/sample-topology-map.svg)
+- [Legacy example network map SVG](docs/example-network-map.svg)
 
 ### Forward Config Downloader
 

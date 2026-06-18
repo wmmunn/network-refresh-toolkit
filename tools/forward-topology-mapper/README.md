@@ -34,7 +34,7 @@ python -m forward_topology_mapper.cli --help
 
 ## Source Included
 
-This public version includes a runnable Python package under `src/`, a sanitized local payload under `examples/`, a GUI launcher, a CLI launcher, a PyInstaller spec, icon assets, and sanitized tests under `tests/`.
+This public version includes a runnable Python package under `src/`, a sanitized local payload and sample SVG under `examples/`, a GUI launcher, a CLI launcher, a PyInstaller spec, icon assets, and sanitized tests under `tests/`.
 
 It intentionally does not include:
 
@@ -124,5 +124,6 @@ In practice, adapting the mapper may require a few controlled endpoint attempts 
 
 See:
 
+- `examples/sample-topology-map.svg`
 - `docs/example-topology-blueprint.md`
 - `docs/example-network-map.svg`
