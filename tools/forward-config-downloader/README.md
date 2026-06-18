@@ -1,5 +1,7 @@
 # Forward Config Downloader
 
+[![Snyk: Config Downloader](https://snyk.io/test/github/wmmunn/network-refresh-toolkit/badge.svg?targetFile=tools%2Fforward-config-downloader%2Frequirements.txt)](https://snyk.io/test/github/wmmunn/network-refresh-toolkit?targetFile=tools%2Fforward-config-downloader%2Frequirements.txt)
+
 Sanitized public source for a read-only running-config retrieval tool.
 
 ## Goal

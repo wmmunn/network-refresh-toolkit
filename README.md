@@ -1,6 +1,8 @@
 # Network Refresh Toolkit
 
 [![tests](https://github.com/wmmunn/network-refresh-toolkit/actions/workflows/tests.yml/badge.svg)](https://github.com/wmmunn/network-refresh-toolkit/actions/workflows/tests.yml)
+[![Snyk: Topology Mapper](https://snyk.io/test/github/wmmunn/network-refresh-toolkit/badge.svg?targetFile=tools%2Fforward-topology-mapper%2Frequirements.txt)](https://snyk.io/test/github/wmmunn/network-refresh-toolkit?targetFile=tools%2Fforward-topology-mapper%2Frequirements.txt)
+[![Snyk: Config Downloader](https://snyk.io/test/github/wmmunn/network-refresh-toolkit/badge.svg?targetFile=tools%2Fforward-config-downloader%2Frequirements.txt)](https://snyk.io/test/github/wmmunn/network-refresh-toolkit?targetFile=tools%2Fforward-config-downloader%2Frequirements.txt)
 
 Python tooling experiments for making network switch refresh work more repeatable, reviewable, and operator-safe.
 

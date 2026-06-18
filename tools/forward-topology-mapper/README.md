@@ -1,5 +1,7 @@
 # Forward Topology Mapper
 
+[![Snyk: Topology Mapper](https://snyk.io/test/github/wmmunn/network-refresh-toolkit/badge.svg?targetFile=tools%2Fforward-topology-mapper%2Frequirements.txt)](https://snyk.io/test/github/wmmunn/network-refresh-toolkit?targetFile=tools%2Fforward-topology-mapper%2Frequirements.txt)
+
 Sanitized public source for a read-only topology mapping tool for switch refresh documentation.
 
 Current public version: `v0.4.0`.
