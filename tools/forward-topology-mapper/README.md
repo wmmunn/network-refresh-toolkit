@@ -53,6 +53,10 @@ It intentionally does not include:
 - No traversal beyond the first upstream boundary pair.
 - Output is designed for review, not execution.
 
+## Security Review
+
+Dependencies are monitored with Snyk. Vulnerability findings should be reviewed, remediated with explicit dependency updates, and validated with the sanitized test suite before release.
+
 ## Usage
 
 Before running this against a real Forward Networks environment, confirm:
