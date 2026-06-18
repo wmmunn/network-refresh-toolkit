@@ -39,6 +39,10 @@ It intentionally does not include:
 - Output is a review artifact, not an execution plan.
 - Structured logs redact credential-like fields and auth-style values.
 
+## Security Review
+
+Dependencies are monitored with Snyk. Vulnerability findings should be reviewed, remediated with explicit dependency updates, and validated with the sanitized test suite before release.
+
 ## Usage
 
 Before running this against a real Forward Networks environment, obtain and confirm:
