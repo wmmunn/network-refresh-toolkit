@@ -74,7 +74,7 @@ class CliTests(TestCase):
 
         self.assertEqual(settings.network_id, "env-network")
 
-    def test_settings_default_network_id_is_blank_in_public_sample(self):
+    def test_settings_default_network_id_is_empty_string(self):
         parser_args = type(
             "Args",
             (),
