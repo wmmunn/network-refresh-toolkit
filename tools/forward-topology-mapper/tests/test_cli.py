@@ -6,7 +6,7 @@ from forward_topology_mapper.cli import build_parser, main, settings_from_args
 
 
 class CliTests(unittest.TestCase):
-    def test_settings_default_network_id_is_blank_in_public_sample(self):
+    def test_settings_default_network_id_is_empty_string(self):
         parser = build_parser()
         args = parser.parse_args(["--hostname", "ACCESS-SW01"])
 
