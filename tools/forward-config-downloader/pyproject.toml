@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=78.1.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "forward-config-downloader"
+version = "1.0.0"
+description = "Read-only running-config retrieval from Forward Networks snapshot APIs for operator review."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Forward Networks Config Downloader contributors" }]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: System :: Networking :: Monitoring",
+]
+dependencies = [
+  "requests>=2.32.4,<3",
+  "urllib3>=2.5.0",
+  "idna>=3.15",
+]
+
+[project.optional-dependencies]
+gui = ["ttkbootstrap>=1.10,<2"]
+build = ["pyinstaller>=6,<7"]
+
+[project.scripts]
+forward-config-downloader = "forward_config_downloader.cli:main"
+forward-config-downloader-gui = "forward_config_downloader.gui:main"
+
+[tool.setuptools]
+packages = ["forward_config_downloader"]
+
+[tool.setuptools.package-dir]
+"" = "src"
