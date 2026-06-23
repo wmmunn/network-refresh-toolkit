@@ -2,9 +2,6 @@ from __future__ import annotations
 
 import json
 import logging
-import base64
-import urllib.error
-import urllib.request
 from typing import Any
 from urllib.parse import quote
 
@@ -39,9 +36,10 @@ class MapperError(Exception):
 class ForwardTopologyClient:
     def __init__(self, settings: MapperSettings, session: Session | None = None):
         self.settings = settings
-        self.session = session or (requests.Session() if requests is not None else None)
-        if self.session is not None:
-            self.session.headers.update({"Accept": "application/json", "Content-Type": "application/json"})
+        if requests is None:
+            raise MapperError(ExitCode.CONFIG_ERROR, "The requests package is required for API access.")
+        self.session = session or requests.Session()
+        self.session.headers.update({"Accept": "application/json", "Content-Type": "application/json"})
         if not settings.local_payload:
             self._apply_auth()
 
@@ -90,8 +88,6 @@ class ForwardTopologyClient:
         return f"{base_url}/{path}"
 
     def get_payload(self, url: str) -> Any:
-        if self.session is None:
-            return self.get_payload_with_urllib(url)
         try:
             response = self.session.get(url, timeout=self.settings.timeout_seconds)
             response.raise_for_status()
@@ -99,29 +95,6 @@ class ForwardTopologyClient:
         except RequestException as exc:
             status_code = getattr(getattr(exc, "response", None), "status_code", None)
             raise MapperError(ExitCode.REQUEST_FAILED, f"API request failed: {exc}", status_code=status_code) from exc
-        except ValueError as exc:
-            raise MapperError(ExitCode.REQUEST_FAILED, f"API response was not valid JSON: {exc}") from exc
-
-    def get_payload_with_urllib(self, url: str) -> Any:
-        headers = {"Accept": "application/json", "Content-Type": "application/json"}
-        auth = self.settings.auth
-        if auth.mode == "bearer" and auth.token:
-            headers["Authorization"] = f"Bearer {auth.token}"
-        elif auth.mode == "basic" and auth.key and auth.secret:
-            raw = f"{auth.key}:{auth.secret}".encode("utf-8")
-            headers["Authorization"] = "Basic " + base64.b64encode(raw).decode("ascii")
-
-        request = urllib.request.Request(url, headers=headers, method="GET")
-        try:
-            with urllib.request.urlopen(request, timeout=self.settings.timeout_seconds) as response:
-                body = response.read().decode("utf-8")
-        except urllib.error.HTTPError as exc:
-            raise MapperError(ExitCode.REQUEST_FAILED, f"API request failed: HTTP {exc.code} {exc.reason}", status_code=exc.code) from exc
-        except urllib.error.URLError as exc:
-            raise MapperError(ExitCode.REQUEST_FAILED, f"API request failed: {exc.reason}") from exc
-
-        try:
-            return json.loads(body)
         except ValueError as exc:
             raise MapperError(ExitCode.REQUEST_FAILED, f"API response was not valid JSON: {exc}") from exc
 
